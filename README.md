@@ -1,131 +1,81 @@
-# ToDoListTest - Test Scenario Descriptions
+ToDoListTest
 
-This README provides an overview of the test scenarios covered by the `@ToDoListTest` feature in the lightweight ToDo list web application.
+What is this repository for?
+This repository contains a Selenium Cucumber-Junit Test Framework for testing the functionality of a lightweight to-do list web application. The framework is designed following Behavior Driven Development (BDD) principles and includes Cucumber Junit Automation Framework. It generates Cucumber Pretty reports.
 
-## Positive Scenarios
-### Verify that the user is able to launch the ToDo list application successfully
-- **Tags:** `@VerifyToDoListPage @Priority1 @SmokeTest`
-- **Steps:**
-  1. Given User launch given lightweight to-do list webapp
-  2. Then Verify the webapp home page
+Dependencies Used (Also can be referred in pom.xml)
+Cucumber Dependencies:
+- io.cucumber:cucumber-java:6.10.4
+- io.cucumber:cucumber-jvm-deps:1.0.6 (provided)
+- io.cucumber:cucumber-junit:6.10.4 (test)
 
-### Verify that the user is able to add a task successfully
-- **Tags:** `@AddItem`
-- **Scenario Outline:**
-  - **Steps:**
-    1. Given User launch given lightweight to-do list webapp
-    2. When Verify the webapp home page
-    3. Then User add a "<ItemName>" to todo list
-    4. And Verify the "<ItemName>" is successfully added to todo list
-  - **Examples:**
-    - | ItemName   |
-      | item_1 |
+Junit Dependencies:
+- junit:junit:4.13.2 (test)
 
-### Verify that the user is able to close a task by pressing the X button
-- **Tags:** `@CloseTask`
-- **Steps:**
-  1. Given User launch given lightweight to-do list webapp
-  2. And Verify the webapp home page
-  3. And User add three tasks to todo list
-  4. When User closes one task
-  5. Then the total count of incomplete tasks should be two
+Selenium Dependencies:
+- org.seleniumhq.selenium:selenium-java:4.0.0-beta-3
+- org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-beta-3
 
-### Verify that the user is able to mark or unmark a task as completed
-- **Tags:** `@markedcompleted`
-- **Steps:**
-  1. Given User launch given lightweight to-do list webapp
-  2. And Verify the webapp home page
-  3. And User add three tasks to todo list
-  4. When User marks one task
-  5. Then the total count of incomplete tasks should be two
-  6. When User unmarks one task
-  7. Then the total count of incomplete tasks should be three
+ToDoList Automation Framework Details
+The ToDoList automation framework is designed to test the ToDoList web application using BDD (Behavior-Driven Development) with Cucumber, Page Object Pattern, and Page Factory Design Pattern.
 
-## Negative Scenarios
-
-### Verify that the user should get an error when accessing an invalid URL
-- **Tags:** `@invalidURL`
-- **Steps:**
-  1. Given the user attempts to access an invalid URL like "https://todomvc.com/examples/angular3/"
-  2. Then the user should be redirected to an error page or a 404 page not found
-
-### Verify that the user should not be able to add an empty task
-- **Tags:** `@addingblanktask`
-- **Steps:**
-  1. Given User launch given lightweight to-do list webapp
-  2. And Verify the webapp home page
-  3. And User tries to add an empty task
-  4. Then the user should not be able to add an empty task
-
-### Verify that the user should get an error message when trying to edit an existing task with an empty value
-- **Tags:** `@editwithemptystring`
-- **Scenario Outline:**
-  - **Steps:**
-    1. Given User launch given lightweight to-do list webapp
-    2. And Verify the webapp home page
-    3. And User add a "<task>" to todo list
-    4. And User edits the existing task with an empty string
-    5. Then User should be getting an error message
-  - **Examples:**
-    - | task   |
-      | task 1 |
-
-### Verify that the application should add a task with leading spaces by removing all leading and trailing spaces
-- **Tags:** `@leadingspaces`
-- **Steps:**
-  1. Given User launch given lightweight to-do list webapp
-  2. And Verify the webapp home page
-  3. And User add a "      task_1    " to todo list
-  4. Then User should be able to add the task by removing leading and trailing spaces
-
-## Framework Details
-The ToDoList automation framework is designed to test the ToDoList web application using BDD (Behavior-Driven Development) with Cucumber, Page Object Pattern, and Page Factory Pattern.
-
-### BDD (Cucumber)
+BDD (Cucumber)
 - This framework follows the BDD approach, allowing easy collaboration between stakeholders and developers.
 - Feature files express scenarios in natural language using Gherkin syntax.
 
-### Page Object Pattern (POM)
+Page Object Pattern (POM)
 - The Page Object Pattern is implemented to enhance code reusability and maintainability.
 - Each web page is represented by a corresponding Page Object, encapsulating the interaction logic.
 
-### Page Factory Pattern (PFP)
+Page Factory Pattern (PFP)
 - Page Factory is utilized to initialize WebElement elements in the Page Objects, enhancing performance and readability.
 
-### Reporting
+Reporting
 - Default HTML reports generated by the Cucumber framework provide comprehensive test execution reports.
 - Reports include details about passed and failed scenarios, step definitions, and feature execution times.
 
-## Technology Stack
-- **Language:** Java
-- **Build Tool:** Maven
-- **Automation API:** Selenium WebDriver
-- **Browser:** Chrome (Version 120)
-- **Chrome Driver:** Must be installed before running the project
+Technology Stack
+-Language:Java
+-Build Tool:Maven
+-Automation API:Selenium WebDriver
+-Browser:Chrome (Version 120)
+-Chrome Driver:Must be installed before running the project
+-Source Code Management: Git repository hosted in Github
 
-## Tags
-- The `@ToDoListTest` tag is assigned to all relevant scenarios for easy categorization and execution.
+Tags used in the feature file:
+@ToDoListTest tag is assigned to all relevant scenarios or the complete feature file with total 8 scenarios for easy categorization and execution.
+@PositiveScenario tag is used in multiple scenarios, this tag categorizes positive scenarios that are expected to succeed without errors.
+@NegativeScenario tag is used in multiple scenarios, this tag categorizes negative scenarios that are expected to fail or encounter errors.
+We can also add multiple tags such as @Priority1 or @SmokeTest to set priority test scenarios or run as smoke tests.
 
-## Setup Instructions
-1. **Clone the Repository:**
-   ```
-   git clone <repository_path>
-   ```
+Setup Instructions
+1. Before running the tests, ensure that you have Java (JDK) and Maven installed. Clone the repository using the following command using bash:
+	git clone https://github.com/<your_username>/ToDoListTest.git
+	cd ToDoListTest
+	or
+	git clone https://github.com/sanashaikhr/Sana-To-Do-List/tree/main  
 
-2. **Install Chrome Driver:**
-   - Download the appropriate ChromeDriver version compatible with Chrome 120.
-   - Add the ChromeDriver executable to your system's PATH.
+2. Install Chrome Driver:
+	Make sure Chrome browser is installed on your machine.
+	Download the appropriate ChromeDriver version compatible with Chrome 120 or ensure that the Chrome browser version matches the ChromeDriver version.
+	Add the ChromeDriver executable to your system's PATH.
 
-3. **Run the Tests:**
-   ```
-   mvn clean test
-   ```
+3. Run the Tests using:
+	Maven:
+	Run the following command to execute Maven and get complete reporting (Pretty Cucumber Reporting):
+	```bash
+	mvn clean install
+	```
 
-4. **View Reports:**
-   - Open the `target/cucumber-reports/index.html` file in a web browser to view the test execution reports.
+	Junit:
+	Run the tests as Junit tests after selecting the runner class (TestRunIT.java).
 
-## Additional Notes
-- Make sure Chrome browser is installed on your machine.
-- Ensure that the Chrome browser version matches the ChromeDriver version.
+	Cucumber:
+	Run the following command to execute Maven with specific tags for complete reporting (Pretty Cucumber Reporting):
+	```bash
+	mvn clean install -Dcucumber.options="--tags @SearchFullRegression"
+
+4. View Reports:
+   Open the `target/cucumber-reports/index.html` file in a web browser to view the test execution reports. Also you can check surefire reports.
 
 Happy testing!
