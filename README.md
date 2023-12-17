@@ -3,6 +3,19 @@
 **What is this repository for?**
 This repository contains a Selenium Cucumber-Junit Test Framework for testing the functionality of a lightweight to-do list web application. The framework is designed following Behavior Driven Development (BDD) principles and includes Cucumber Junit Automation Framework. It generates Cucumber Pretty reports.
 
+**Short Description of Scenarios**
+Positive Scenarios:
+Scenario: 01. Verify that user is able to launch To do list application successfully
+Scenario: 02. Verify that user is able to add a task successfully 
+Scenario: 03. Verify that user is able to close a task by pressing X button 
+Scenario: 04. Verify that user is able to mark or un mark a task a completed
+
+Negative Scenarios:
+Scenario: 05. Verify that User should get an error whern Accessing an invalid URL
+Scenario: 06. Verify that user should not be able to add a empty  task 
+Scenario: 07. Verify that when user try to edit an existing task with empty value then user should be getting an error message
+Scenario: 08. Verify that when user try to add a task with leading spaces then application should add the task by removing all leading and trailing spaces
+
 **Dependencies Used (Also can be referred in pom.xml)**
 
 **Cucumber Dependencies:**
