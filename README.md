@@ -59,7 +59,7 @@ The ToDoList automation framework is designed to test the ToDoList web applicati
 **Tags used in the feature file:**
 @ToDoListTest tag is assigned to all relevant scenarios or the complete feature file with total 8 scenarios for easy categorization and execution.
 @PositiveScenario tag is used in multiple scenarios, this tag categorizes positive scenarios that are expected to succeed without errors.
-@NegativeScenario tag is used in multiple scenarios, this tag categorizes negative scenarios that are expected to fail or encounter errors.
+@NegativeScenario tag is used in multiple scenarios, this tag categorizes negative scenarios.
 We can also add multiple tags such as @Priority1 or @SmokeTest to set priority test scenarios or run as smoke tests.
 
 **Setup Instructions**
