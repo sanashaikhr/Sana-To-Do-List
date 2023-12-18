@@ -63,10 +63,7 @@ The ToDoList automation framework is designed to test the ToDoList web applicati
 We can also add multiple tags such as @Priority1 or @SmokeTest to set priority test scenarios or run as smoke tests.
 
 **Setup Instructions**
-1. Before running the tests, ensure that you have Java (JDK) and Maven installed. Clone the repository using the following command using bash:
-	git clone https://github.com/<your_username>/ToDoListTest.git
-	cd ToDoListTest
-	or
+1. Before running the tests, ensure that you have Java (JDK) and Maven installed. Clone the repository using the following command using git bash or command prompt:
 	git clone https://github.com/sanashaikhr/Sana-To-Do-List/tree/main  
 
 2. Install Chrome Driver:
@@ -76,18 +73,16 @@ We can also add multiple tags such as @Priority1 or @SmokeTest to set priority t
 
 3. Run the Tests using:
 	Maven:
-	Run the following command to execute Maven and get complete reporting (Pretty Cucumber Reporting):
-	```bash
+	Run the following command to execute Maven and get complete reporting (Pretty Cucumber Reporting),
+	Open CMD (for Windows) or Terminal (for macbook) and run the below command:
 	mvn clean install
-	```
 
 	Junit:
 	Run the tests as Junit tests after selecting the runner class (TestRunIT.java).
 
 	Cucumber:
 	Run the following command to execute Maven with specific tags for complete reporting (Pretty Cucumber Reporting):
-	```bash
-	mvn clean install -Dcucumber.options="--tags @SearchFullRegression"
+	mvn clean install -Dcucumber.options="--tags @ToDoListTest" which is acting as a complete regression suite.
 
 4. View Reports:
    Open the `target/cucumber-reports/index.html` file in a web browser to view the test execution reports. Also you can check surefire reports.
