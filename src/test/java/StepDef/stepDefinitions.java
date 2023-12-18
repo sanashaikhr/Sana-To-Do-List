@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -59,7 +60,7 @@ public class stepDefinitions {
     public void verify_the_is_successfully_added_to_todo_list(String itemName) throws Throwable {
     	
     	Assert.assertTrue(todolistHomePage.verifyListItem(itemName));
-    	driver.quit();
+//    	driver.quit();
     	
     }
     
@@ -118,7 +119,7 @@ public class stepDefinitions {
     public void the_user_should_be_redirected_to_an_error_page_or_a_page_not_found(int arg1) throws Throwable {
     	
     	Assert.assertTrue(driver.getTitle().contains("Page not found"));
-    	driver.quit();
+//    	driver.quit();
     	
     }
     
@@ -146,7 +147,7 @@ public class stepDefinitions {
     public void user_should_not_be_able_to_add_empty_task() throws Throwable {
     	
        Assert.assertTrue(todolistHomePage.verifyifblanktaskisnotadded());
-       driver.quit();
+//       driver.quit();
     }
 
    
@@ -170,11 +171,14 @@ public class stepDefinitions {
         
     	
     	Assert.assertTrue(todolistHomePage.verifyitem().contains("task_1"));
-    	driver.quit();
+//    	driver.quit();
     }
 
 
-  
+    @After
+	public void after() {
+		driver.close();
+	}
 
 
 }

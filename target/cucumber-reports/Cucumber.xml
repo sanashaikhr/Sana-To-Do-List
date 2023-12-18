@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="14.147409">
-<testcase classname="Test lightweight to-do list webapp Functionality." name="Verify that when user try to add a task with leading spaces then application should add the task by removing all leading and trailing spaces" time="14.147409">
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="8" time="107.154">
+<testcase classname="Test lightweight to-do list webapp Functionality." name="01. Verify that user is able to launch To do list application successfully" time="8.28963">
+<system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
+Then Verify the webapp home page............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="02. Verify that user is able to add a task successfully" time="12.165112">
+<system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
+When Verify the webapp home page............................................passed
+Then User add a "item_1" to todo list.......................................passed
+And Verify the "item_1" is successfully added to todo list..................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="03. Verify that user is able to close a task by pressing X button" time="13.627914">
+<system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
+And Verify the webapp home page.............................................passed
+And User add three tasks to todo list.......................................passed
+When User closes one task...................................................passed
+Then the total count of incomplete tasks should be two......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="04. Verify that user is able to mark or un mark a task a completed" time="19.923666">
+<system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
+And Verify the webapp home page.............................................passed
+And User add three tasks to todo list.......................................passed
+When User markes one task...................................................passed
+Then the total count of incomplete tasks should be two......................passed
+When User un markes one task................................................passed
+Then the total count of incomplete tasks should be three....................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="05. Verify that User should get an error whern Accessing an invalid URL" time="1.50693">
+<system-out><![CDATA[Given the user attempts to access an invalid URL like "https://todomvc.com/examples/angular3/".passed
+Then the user should be redirected to an error page or a 404 page not found.passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="06. Verify that user should not be able to add a empty  task" time="21.16367">
+<system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
+And Verify the webapp home page.............................................passed
+And User try to add empty task..............................................passed
+Then user should not be able to add empty task..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="07. Verify that when user try to edit an existing task with empty value then user should be getting an error message" time="18.290907">
+<system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
+And Verify the webapp home page.............................................passed
+And User add a "task 1" to todo list........................................passed
+And User edits the existing task with empty string..........................passed
+Then User should be getting an error message................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test lightweight to-do list webapp Functionality." name="08. Verify that when user try to add a task with leading spaces then application should add the task by removing all leading and trailing spaces" time="12.186171">
 <system-out><![CDATA[Given User launch given lightweight to-do list webapp.......................passed
 And Verify the webapp home page.............................................passed
 And User add a "      task_1    " to todo list..............................passed
